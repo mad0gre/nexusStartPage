@@ -398,7 +398,7 @@ var sitesView = Backbone.View.extend({
         })
         $('#renderedSites').append(renderedSection.render().el)
       }
-      section.get('content').forEach(function(site) {
+      section.get('content').sort((a, b) => a.name.localeCompare(b.name)).forEach(function(site) {
         site.reference = section.cid //Add a reference to its section
         var renderedUrl = new urlView({
           model: site,
